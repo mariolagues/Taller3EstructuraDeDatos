@@ -2,6 +2,6 @@
 #include <vector>
 
 class HeapSort {
-public:
+    public:
     static void ordenar(std::vector<int>& v);
 };

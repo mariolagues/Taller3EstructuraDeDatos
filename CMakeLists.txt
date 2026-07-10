@@ -10,4 +10,6 @@ add_executable(Taller3EstructuraDeDatos main.cpp
         MergeSort/MergeSort.cpp
         HeapSort/HeapSort.h
         HeapSort/HeapSort.cpp
+        GeneradorDatos/GeneradorDatos.h
+        GeneradorDatos/GeneradorDatos.cpp
 )
