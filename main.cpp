@@ -1,38 +1,64 @@
 #include <iostream>
-#include <vector>
 #include <cstdlib>
 #include <ctime>
+
+#include "LinkedList/LinkedList.h"
+#include "GeneradorDatos/GeneradorDatos.h"
 #include "BubbleSort/BubbleSort.h"
 #include "MergeSort/MergeSort.h"
 #include "HeapSort/HeapSort.h"
-#include "GeneradorDatos/GeneradorDatos.h"
+
 using namespace std;
 
-int main() {
+void imprimirLista(LinkedList& lista){
+
+    Node* actual = lista.getInicio();
+
+    while (actual != nullptr){
+        cout << actual->getDato() << " ";
+        actual = actual->getNext();
+    }
+
+    cout << endl;
+}
+
+int main(){
 
     srand(time(NULL));
 
     int cantidad = 10;
 
-    vector<int> v = GeneradorDatos::generarAleatorio(cantidad);
+    LinkedList bubble;
+    LinkedList merge;
+    LinkedList heap;
 
-    cout << "Vector generado:" << endl;
+    GeneradorDatos::generarAleatorio(bubble, cantidad);
+    GeneradorDatos::generarAleatorio(merge, cantidad);
+    GeneradorDatos::generarAleatorio(heap, cantidad);
 
-    for (int i = 0; i < v.size(); i++){
-        cout << v[i] << " ";
-    }
+    cout << "lista bubble antes:" << endl;
+    imprimirLista(bubble);
 
-    cout << endl << endl;
+    BubbleSort::ordenar(bubble);
 
-    BubbleSort::ordenar(v);
+    cout << "lista bubble despues:" << endl;
+    imprimirLista(bubble);
 
-    cout << "Vector ordenado con Bubble Sort:" << endl;
+    cout << endl << "lista merge antes:" << endl;
+    imprimirLista(merge);
 
-    for (int i = 0; i < v.size(); i++){
-        cout << v[i] << " ";
-    }
+    MergeSort::ordenar(merge);
 
-    cout << endl;
+    cout << "lista merge despues:" << endl;
+    imprimirLista(merge);
+
+    cout << endl << "lista heap antes:" << endl;
+    imprimirLista(heap);
+
+    HeapSort::ordenar(heap);
+
+    cout << "lista heap despues:" << endl;
+    imprimirLista(heap);
 
     return 0;
 }
