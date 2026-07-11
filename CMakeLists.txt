@@ -18,4 +18,10 @@ add_executable(Taller3EstructuraDeDatos main.cpp
         LinkedList/Node.cpp
         LinkedList/LinkedList.h
         LinkedList/LinkedList.cpp
+        Metricas/Metricas.h
+        Metricas/Metricas.cpp
+        Validador/Validador.h
+        Validador/Validador.cpp
+        Pruebas/Pruebas.h
+        Pruebas/Pruebas.cpp
 )

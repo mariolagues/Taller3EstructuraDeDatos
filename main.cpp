@@ -1,64 +1,15 @@
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-
-#include "LinkedList/LinkedList.h"
-#include "GeneradorDatos/GeneradorDatos.h"
-#include "BubbleSort/BubbleSort.h"
-#include "MergeSort/MergeSort.h"
-#include "HeapSort/HeapSort.h"
-
-using namespace std;
-
-void imprimirLista(LinkedList& lista){
-
-    Node* actual = lista.getInicio();
-
-    while (actual != nullptr){
-        cout << actual->getDato() << " ";
-        actual = actual->getNext();
-    }
-
-    cout << endl;
-}
+#include "Pruebas/Pruebas.h"
 
 int main(){
 
-    srand(time(NULL));
+    Pruebas::probarVector(2, 3, 10000);
+    Pruebas::probarVector(1, 1, 100);
+    Pruebas::probarVector(2, 1, 100);
+    Pruebas::probarVector(3, 1, 100);
 
-    int cantidad = 10;
-
-    LinkedList bubble;
-    LinkedList merge;
-    LinkedList heap;
-
-    GeneradorDatos::generarAleatorio(bubble, cantidad);
-    GeneradorDatos::generarAleatorio(merge, cantidad);
-    GeneradorDatos::generarAleatorio(heap, cantidad);
-
-    cout << "lista bubble antes:" << endl;
-    imprimirLista(bubble);
-
-    BubbleSort::ordenar(bubble);
-
-    cout << "lista bubble despues:" << endl;
-    imprimirLista(bubble);
-
-    cout << endl << "lista merge antes:" << endl;
-    imprimirLista(merge);
-
-    MergeSort::ordenar(merge);
-
-    cout << "lista merge despues:" << endl;
-    imprimirLista(merge);
-
-    cout << endl << "lista heap antes:" << endl;
-    imprimirLista(heap);
-
-    HeapSort::ordenar(heap);
-
-    cout << "lista heap despues:" << endl;
-    imprimirLista(heap);
+    Pruebas::probarLinkedList(1, 1, 100);
+    Pruebas::probarLinkedList(2, 1, 100);
+    Pruebas::probarLinkedList(3, 1, 100);
 
     return 0;
 }
